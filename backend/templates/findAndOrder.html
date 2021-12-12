@@ -512,7 +512,7 @@
     </div>
     <section>
         <form action="" method="post" id="fileform" enctype="multipart/form-data">
-            {% csrf_token %}
+
             <div class="container">
                 <div class="wrapper">
                     <div class="image">
@@ -543,7 +543,6 @@
 
             </div>
         </form>
-        {% if result %}
         <div class="modal-container" id="model-container">
             <input id="modal-toggle" type="checkbox">
             <div class="modal-backdrop">
@@ -555,7 +554,6 @@
                 </div>
             </div>
         </div>
-        {% endif %}
     </section>
 
     <script>
