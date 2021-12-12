@@ -1,3 +1,4 @@
+from typing import ContextManager
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 from .util import classify_image
@@ -61,4 +62,25 @@ def main(request):
         a.order_image = filename
         a.user_id = request.user
         a.save()
+        context = {
+            'name': filename,
+            'result': True
+        }
+        return render(request, 'findAndOrder.html', context=context)
     return render(request, 'findAndOrder.html')
+
+
+def dashboard(request):
+    return render(request, 'home.html')
+
+
+def chefHome(request):
+    return render(request, 'chefHome.html')
+
+
+def chef(request):
+    a = orders.objects.all()
+    context = {
+        'data': a
+    }
+    return render(request, 'chefOrder.html', context=context)
