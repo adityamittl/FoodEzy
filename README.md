@@ -10,6 +10,7 @@ FoodEzy is a web app, where you just need to click the picture of the dish you w
 
 ## ⚙️ How we built it
 
+- ML: Python, TensorFlow
 - Frontend: HTML, CSS, JS
 - Backend: Django
 - Linode: hosting and storage
