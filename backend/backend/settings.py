@@ -10,11 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-import os
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -77,16 +77,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django_cockroachdb',
-        'NAME': 'brown-donkey-728.defaultdb',
-        'USER': 'aditya',
-        'PASSWORD': 'i26_nleQKL56vRgo',
-        'HOST': 'free-tier4.aws-us-west-2.cockroachlabs.cloud',
-        'PORT': '26257',
-        'OPTIONS': {
-            'sslmode': 'verify-full',
-            'sslrootcert': BASE_DIR/'root.crt',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -127,14 +119,45 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/static/',
 ]
 
+STATIC_URL = '/static/'
+MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR/'media'
 
-LOGIN_REDIRECT_URL = '/login'
-LOGIN_URL = '/login/'
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# ENV_FILE = find_dotenv()
+# if ENV_FILE:
+#     load_dotenv(ENV_FILE)
+
+# SOCIAL AUTH AUTH0 BACKEND CONFIG
+SOCIAL_AUTH_TRAILING_SLASH = False
+SOCIAL_AUTH_AUTH0_KEY = 'KJrS5pfsDtEtHfjQyYvsUQakAVsGY2US'
+SOCIAL_AUTH_AUTH0_SECRET = '4tvoUJ8dry5IXzwMQmBpIaOm_n0WaG3OwOxRHLCN9wWlDHuwOH3YPH7kOaz2moFB'
+SOCIAL_AUTH_AUTH0_SCOPE = [
+    'openid',
+    'profile',
+    'email'
+]
+SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-4e7fr1rl.us.auth0.com'
+AUDIENCE = None
+if os.environ.get('AUTH0_AUDIENCE'):
+    AUDIENCE = os.environ.get('AUTH0_AUDIENCE')
+else:
+    if SOCIAL_AUTH_AUTH0_DOMAIN:
+        AUDIENCE = 'https://' + SOCIAL_AUTH_AUTH0_DOMAIN + '/userinfo'
+if AUDIENCE:
+    SOCIAL_AUTH_AUTH0_AUTH_EXTRA_ARGUMENTS = {'audience': AUDIENCE}
+AUTHENTICATION_BACKENDS = {
+    'auth0login.auth0backend.Auth0',
+    'django.contrib.auth.backends.ModelBackend'
+}
