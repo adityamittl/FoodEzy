@@ -2,7 +2,11 @@
 
 ## 💡 Inspiration
 
+Maybe you don't know how to cook that french dish you saw on TV or paragraphs you don't want to cook. Or you don't know the recipe of that dish. Well, this is the solution for you. FoodEzy is a web app, where you just need to click the picture of the dish you want to eat and we will place the order for you.
+
 ## 💻 What it does
+
+FoodEzy is a web app, where you just need to click the picture of the dish you want to eat and we will place the order for you. Find out the name of the dish with the help of smart AI dish recognition. You can also search for the dish you want to eat and we will tell you the recipe.
 
 ## ⚙️ How we built it
 
