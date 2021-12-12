@@ -1,41 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodEzy</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&family=Roboto:wght@100;300;400;500&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <title>Check Food Orders | FoodEzy</title>
+    <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 
 <body>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: "Poppins", sans-serif;
-            text-decoration: none;
-            outline: none;
-            border: none;
-            text-transform: capitalize;
-            transition: all 0.2s linear;
-        }
-
-        html {
-            font-size: 62.5%;
-            overflow-x: hidden;
         }
 
         .sidebar {
@@ -249,122 +233,79 @@
             }
         }
 
-        .home-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-evenly;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         section {
-            min-height: 100vh;
-            padding: 1rem 10%;
-            padding-top: 8.5rem;
-        }
-
-        .btn {
-            font-size: 1.7rem;
-            padding: 0.7rem 4rem;
-            border-radius: 5rem;
-            margin-top: 1rem;
-            background: none;
-            color: #333;
-            cursor: pointer;
-            border: 0.2rem solid #11101D;
-        }
-
-        .btn:hover {
-            background: #2a2744;
-        }
-
-        .home {
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 0;
-            overflow: hidden;
+            padding: 10px 0;
         }
 
-        .home::before,
-        .home::after {
-            content: "";
-            position: absolute;
-            top: 5rem;
-            right: -6rem;
-            background: #11101D;
-            border-radius: 3rem;
-            transform: rotate(-45deg);
-            height: 40rem;
-            width: 70rem;
-            z-index: -2;
-            animation: animte 1s linear 1;
+        .main {
+
+            margin: 2%;
         }
 
-        @keyframes animte {
-            0% {
-                transform: rotate(45deg) translateY(-40rem);
-            }
+        .card {
+            width: 20%;
+            display: inline-block;
+            box-shadow: 2px 2px 20px black;
+            border-radius: 5px;
+            margin: 2%;
         }
 
-        .home::before {
-            top: -7rem;
-            background: #E4E9F7;
-            box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1);
-            z-index: -1;
-        }
-
-        .home .image {
-            flex: 1 1 39rem;
-        }
-
-        .home .image img {
+        .image img {
             width: 100%;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+
+
+
         }
 
-        .home .content {
-            flex: 1 1 39rem;
+        .title {
+
+            text-align: center;
+            padding: 10px;
+
         }
 
-        .home .content h3 {
-            color: #333;
-            font-size: 6rem;
+        h1 {
+            font-size: 20px;
         }
 
-        .home .content p {
-            color: #666;
-            font-size: 2rem;
-            padding: 1rem 0;
+        .des {
+            padding: 3px;
+            text-align: center;
+
+            padding-top: 10px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
         }
 
-        @media (max-width: 768px) {
-
-            .home .content {
-                text-align: center;
-            }
-
-            .home .content h3 {
-                font-size: 4.5rem;
-            }
-
-            .order .row .image {
-                display: none;
-            }
+        button {
+            margin-top: 40px;
+            margin-bottom: 10px;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
         }
 
-        @media (max-width: 500px) {
-            html {
-                font-size: 50%;
-            }
-
-            section {
-                padding: 1rem 5%;
-                padding-top: 8.5rem;
-            }
+        button:hover {
+            background-color: black;
+            color: white;
+            transition: .5s;
+            cursor: pointer;
         }
     </style>
-
     <div class="sidebar">
         <div class="logo-details">
             <div class="logo_name">FoodEzy</div>
@@ -372,32 +313,18 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="/">
+                <a href="/chefHome">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
                 <span class="tooltip">Dashboard</span>
             </li>
             <li>
-                <a href="/placeorder">
+                <a href="/checkOrder">
                     <i class='bx bx-restaurant'></i>
-                    <span class="links_name">Order Food</span>
+                    <span class="links_name">Check Food Order</span>
                 </a>
-                <span class="tooltip">Order Food</span>
-            </li>
-            <li>
-                <a href="/ingredients">
-                    <i class='bx bx-food-menu'></i>
-                    <span class="links_name">Find Dish</span>
-                </a>
-                <span class="tooltip">Find Dish</span>
-            </li>
-            <li>
-                <a href="/recepies">
-                    <i class='bx bx-book'></i>
-                    <span class="links_name">Recipes</span>
-                </a>
-                <span class="tooltip">Recipes</span>
+                <span class="tooltip">Check Food Order</span>
             </li>
 
             <li class="profile">
@@ -407,42 +334,93 @@
             </li>
         </ul>
     </div>
+    <section class="home-section">
+        <div class="main">
 
-    <section class="home" id="home">
 
-        <div class="content" data-aos="fade-right">
-            <h3>FoodEzy</h3>
-            <p>Making Food Ordering Easy</p>
-            <p>FoodEzy is a web app, where you just need to click the picture of the dish you want to eat and we will place the order for you. Find out the name of the dish with the help of smart AI dish recognition. You can also search for the dish you want to eat and we will tell you the recipe.</p>
-            <a href="/placeorder"><button class="btn">Order food</button></a>
+            <div class="card">
+                <div class="image">
+                    <img
+                        src="https://www.seriouseats.com/thmb/Z6NDbu7DIMqykB4s8zw5gyycbnk=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2014__10__20140930-cassoulet-recipe-food-lab-new-6-02f6e483b0a841fc8a4395ca1e77d484.jpg">
+                </div>
+                <div class="title">
+                    <h1>Order from: John Doe</h1>
+                </div>
+                <div class="des">
+                    <p>Customrize: Add more spice</p>
+                    <p>Order at: A-599, New Delhi</p>
+                    <button>Take order</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image">
+                    <img
+                        src="https://i2.wp.com/www.frenchmumcooking.com/wp-content/uploads/2018/10/oeufs-meurette.jpg?fit=1024%2C768&ssl=1">
+                </div>
+                <div class="title">
+                    <h1>Order from: Olive Yew</h1>
+                </div>
+                <div class="des">
+                    <p>Customrize: Add less spice</p>
+                    <p>Order at: A-5486, Bangalore</p>
+                    <button>Take order</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image">
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Religieuses_au_chocolat.jpg/1200px-Religieuses_au_chocolat.jpg">
+                </div>
+                <div class="title">
+                    <h1>Order from: Aida Bugg</h1>
+                </div>
+                <div class="des">
+                    <p>Customrize: None</p>
+                    <p>Order at: Street-599, Calcuta</p>
+                    <button>Take order</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image">
+                    <img src="https://i.pinimg.com/originals/48/47/41/4847412b66bada2fc8c175f3098b6b87.jpg">
+                </div>
+                <div class="title">
+                    <h1>Order from: Teri Dactyl</h1>
+                </div>
+                <div class="des">
+                    <p>Customrize: None</p>
+                    <p>Order at: Street-9, London</p>
+                    <button>Take order</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image">
+                    <img
+                        src="https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=1921&h=961&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2013%2F12%2F06%2F200607-r-xl-bouillabaisse.jpg">
+                </div>
+                <div class="title">
+                    <h1>Order from: Peg Legge</h1>
+                </div>
+                <div class="des">
+                    <p>Customrize: Add more mushrooms</p>
+                    <p>Order at: C-99, Chennai</p>
+                    <button>Take order</button>
+                </div>
+            </div>
+
+
         </div>
-
-        <div class="image" data-aos="fade-up">
-            <img src="/static//hero_img.png" alt="">
-        </div>
-
     </section>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <!-- <script src="js/script.js"></script> -->
-
-
-    <script>
-
-        AOS.init({
-            delay: 400,
-            duration: 1000
-        })
-
-    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
 
     <script>
+
         function imgsplit() {
             $("#splitform").append("<input type = 'file' name = 'myfile' id='myfile'>")
             $("#mos").val('1');
@@ -470,7 +448,6 @@
         console.log(Cookies.get('csrftoken'));
 
     </script>
-
 </body>
 
 </html>
