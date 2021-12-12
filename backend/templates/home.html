@@ -1,25 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoodEzy</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&family=Roboto:wght@100;300;400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 
 <body>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: "Poppins", sans-serif;
+            text-decoration: none;
+            outline: none;
+            border: none;
+            text-transform: capitalize;
+            transition: all 0.2s linear;
+        }
+
+        :root {
+            --yellow: #f7ca3e;
         }
 
         .sidebar {
@@ -240,86 +255,137 @@
             justify-content: space-evenly;
         }
 
-        .box {
-            width: 300px;
-            padding: 40px;
-            position: absolute;
-            margin-top: 10px;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #191919;
-            text-align: center;
-            border-radius: 25px;
+
+
+        h1,
+        h3 {
+            font-family: "Oswald", sans-serif;
         }
 
-        .box h1 {
-            color: white;
-            text-transform: uppercase;
-            font-weight: 500;
+        *::selection {
+            background: #f7ca3e;
+            color: #E4E9F7;
         }
 
-        .box input[type="text"],
-        input[type="email"] {
-            border: 0;
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        body {
+            overflow-x: hidden;
+            /* height:200rem; */
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 1rem 10%;
+            padding-top: 8.5rem;
+        }
+
+        .btn {
+            font-size: 1.7rem;
+            padding: 0.7rem 4rem;
+            border-radius: 5rem;
+            margin-top: 1rem;
             background: none;
-            display: block;
-            margin: 20px auto;
-            text-align: center;
-            border: 2px solid #3498db;
-            padding: 14px 10px;
-            width: 200px;
-            outline: none;
-            color: white;
-            border-radius: 24px;
-            transition: 0.25s;
-        }
-
-        .box input[type="text"]:focus,
-        input[type="email"]:focus {
-            width: 280px;
-            border-color: #2ecc71;
-            margin-left: -30px;
-        }
-
-        .box input[type="submit"],
-        button {
-            border: 0;
-            background: none;
-            display: block;
-            margin: 20px auto;
-            text-align: center;
-            border: 2px solid #2ecc71;
-            padding: 14px 40px;
-            outline: none;
-            color: white;
-            border-radius: 24px;
-            transition: 0.25s;
+            color: #333;
             cursor: pointer;
+            border: 0.2rem solid #f7ca3e;
         }
 
-        .box input[type="submit"]:hover {
-            background: #2ecc71;
+        .btn:hover {
+            background: #f7ca3e;
         }
 
-        .image {
-            margin-top: 880px;
-            margin-bottom: 50px;
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 0;
+            overflow: hidden;
         }
 
-        #thank_you_name {
+        .home::before,
+        .home::after {
+            content: "";
             position: absolute;
-            padding-top: 780px;
-            margin-left: -25px;
-            font-size: 25px;
+            top: 5rem;
+            right: -6rem;
+            background: #f7ca3e;
+            border-radius: 3rem;
+            transform: rotate(-45deg);
+            height: 40rem;
+            width: 70rem;
+            z-index: -2;
+            animation: animte 1s linear 1;
         }
 
-        #thank_you_note {
-            position: absolute;
-            padding-top: 900px;
-            font-size: 20px;
-            max-width: 400px;
+        @keyframes animte {
+            0% {
+                transform: rotate(45deg) translateY(-40rem);
+            }
+        }
+
+        .home::before {
+            top: -7rem;
+            background: #E4E9F7;
+            box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1);
+            z-index: -1;
+        }
+
+        .home .image {
+            flex: 1 1 39rem;
+        }
+
+        .home .image img {
+            width: 100%;
+        }
+
+        .home .content {
+            flex: 1 1 39rem;
+        }
+
+        .home .content h3 {
+            color: #333;
+            font-size: 6rem;
+        }
+
+        .home .content p {
+            color: #666;
+            font-size: 2rem;
+            padding: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+
+            .home .content {
+                text-align: center;
+            }
+
+            .home .content h3 {
+                font-size: 4.5rem;
+            }
+
+            .order .row .image {
+                display: none;
+            }
+        }
+
+        @media (max-width: 500px) {
+            html {
+                font-size: 50%;
+            }
+
+            section {
+                padding: 1rem 5%;
+                padding-top: 8.5rem;
+            }
         }
     </style>
+
     <div class="sidebar">
         <div class="logo-details">
             <div class="logo_name">FoodEzy</div>
@@ -334,7 +400,7 @@
                 <span class="tooltip">Dashboard</span>
             </li>
             <li>
-                 <a href="/placeorder">
+                <a href="/placeorder">
                     <i class='bx bx-restaurant'></i>
                     <span class="links_name">Order Food</span>
                 </a>
@@ -362,11 +428,37 @@
             </li>
         </ul>
     </div>
-    <section class="home-section">
 
-        Home
+    <section class="home" id="home">
+
+        <div class="content" data-aos="fade-right">
+            <h3>We belive good food offer great smile</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, odit distinctio error corporis adipisci
+                molestias eveniet optio quaerat tempore asperiores!</p>
+            <a href="#"><button class="btn">get started</button></a>
+        </div>
+
+        <div class="image" data-aos="fade-up">
+            <img src="/static//hero_img.png" alt="">
+        </div>
 
     </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- <script src="js/script.js"></script> -->
+
+
+    <script>
+
+        AOS.init({
+            delay: 400,
+            duration: 1000
+        })
+
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
@@ -399,6 +491,7 @@
         console.log(Cookies.get('csrftoken'));
 
     </script>
+
 </body>
 
 </html>
